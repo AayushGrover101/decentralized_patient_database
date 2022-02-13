@@ -30,7 +30,19 @@ contract Database {
 
 
     // adding datapoints
-    function addPatient(string memory _name, string memory _age, string memory _currentMedications, string memory _pastMedications, string memory _presecriptions, string memory _pastProcedures, string memory _diseaseHistory, string memory _allergies, string memory _notes, string memory _OHIP,  bool _dataUsageAgreement) public {
+    function addPatient(
+        string memory _name, 
+        string memory _age, 
+        string memory _currentMedications, 
+        string memory _pastMedications, 
+        string memory _presecriptions, 
+        string memory _pastProcedures, 
+        string memory _diseaseHistory, 
+        string memory _allergies, 
+        string memory _notes, 
+        string memory _OHIP,  
+        bool _dataUsageAgreement) 
+    public {
         patientCount++;
         patientsById[patientCount] = PatientDatabase(patientCount, _name, _age, _currentMedications, _pastMedications, _presecriptions, _pastProcedures, _diseaseHistory, _allergies, _notes, _OHIP, _dataUsageAgreement);
         patientsByOHIP[searchOHIP] = PatientDatabase(patientCount, _name, _age, _currentMedications, _pastMedications, _presecriptions, _pastProcedures, _diseaseHistory, _allergies, _notes, searchOHIP, _dataUsageAgreement);
